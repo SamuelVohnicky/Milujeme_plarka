@@ -50,7 +50,10 @@ namespace Milujeme_plarka.Models
             });
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string> { RoleId = "Admin", UserId = "ADMINUSER" });
         }
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        {
 
+        }
 
     }
 }

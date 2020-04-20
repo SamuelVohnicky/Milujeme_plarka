@@ -12,6 +12,7 @@ using Milujeme_plarka.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Milujeme_plarka.Models;
 
 namespace Milujeme_plarka
 {
