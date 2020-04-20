@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Milujeme_plarka.Models;
 
-namespace Milujeme_plarka.Data.Migrations
+namespace Milujeme_plarka.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200420113538_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,13 +51,13 @@ namespace Milujeme_plarka.Data.Migrations
                         new
                         {
                             Id = "Admin",
-                            ConcurrencyStamp = "96bedf8f-8558-4436-bc92-74fced642167",
+                            ConcurrencyStamp = "f0aae651-bedf-4d47-ae3c-73d7f01d7a12",
                             Name = "Administrator"
                         },
                         new
                         {
                             Id = "User",
-                            ConcurrencyStamp = "c6e7b2ce-df2c-499e-9f40-9e782d339553",
+                            ConcurrencyStamp = "0a447ed8-3ea2-4dd1-af46-aeb053c8a3f1",
                             Name = "Uživatel"
                         });
                 });
@@ -182,12 +184,10 @@ namespace Milujeme_plarka.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -231,12 +231,10 @@ namespace Milujeme_plarka.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -371,19 +369,17 @@ namespace Milujeme_plarka.Data.Migrations
                         {
                             Id = "ADMINUSER",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5bc22651-faba-469f-9e77-9061c7873a19",
-                            Email = "josef.simunek@pslib.cz",
+                            ConcurrencyStamp = "deeb1968-5000-4a71-8838-d605b82de06a",
+                            Email = "admin@admin.admin",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "JOSEF.SIMUNEK@PSLIB.CZ",
+                            NormalizedEmail = "ADMIN@ADMIN.ADMIN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELJDJ4ym1+k0G5z0ZwHY87bEuvy2hJvy/cvb4pGsrc6y8D76OyjeWsaWooUu6tqOxQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDaHoYCNeFvoGaNHGFlQpS2MnvU7t310xGx6y6HEappHFA30fXQlpn286H1ORazQ4g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
-                            UserName = "admin",
-                            FirstName = "Main",
-                            LastName = "Administrator"
+                            UserName = "Admin"
                         });
                 });
 

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Milujeme_plarka.Data;
+
 
 [assembly: HostingStartup(typeof(Milujeme_plarka.Areas.Identity.IdentityHostingStartup))]
 namespace Milujeme_plarka.Areas.Identity

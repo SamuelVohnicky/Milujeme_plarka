@@ -37,22 +37,18 @@ namespace Milujeme_plarka.Models
             builder.Entity<ApplicationUser>().HasData(new ApplicationUser
             {
                 Id = "ADMINUSER",
-                FirstName = "Main",
-                LastName = "Administrator",
-                UserName = "admin",
-                NormalizedUserName = "ADMIN",
-                Email = "josef.simunek@pslib.cz",
-                NormalizedEmail = "JOSEF.SIMUNEK@PSLIB.CZ",
+                Email = "admin@admin.admin",
+                NormalizedEmail = "ADMIN@ADMIN.ADMIN",
                 EmailConfirmed = true,
                 LockoutEnabled = false,
-                SecurityStamp = string.Empty,
-                PasswordHash = hasher.HashPassword(null, "Admin.1234")
+                UserName = "Admin",
+                NormalizedUserName = "ADMIN",
+                PasswordHash = hasher.HashPassword(null, "Admin_1234"),
+                SecurityStamp = string.Empty
             });
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string> { RoleId = "Admin", UserId = "ADMINUSER" });
         }
-        public ApplicationDbContext(DbContextOptions options) : base(options)
-        {
-
+        public ApplicationDbContext(DbContextOptions options) : base(options) { 
         }
 
     }

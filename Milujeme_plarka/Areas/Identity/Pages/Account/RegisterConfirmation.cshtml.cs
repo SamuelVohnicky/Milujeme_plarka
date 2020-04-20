@@ -2,10 +2,10 @@
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Milujeme_plarka.Services;
 
 namespace Milujeme_plarka.Areas.Identity.Pages.Account
 {
