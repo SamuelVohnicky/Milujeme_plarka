@@ -10,10 +10,10 @@ namespace Milujeme_plarka.Models
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        DbSet<Champion> Champions { get; set; }
-        DbSet<Item> Items { get; set; }
-        DbSet<Summoner> Summoners { get; set; }
-        DbSet<Quest> Quests { get; set; }
+        public DbSet<Champion> Champions { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Summoner> Summoners { get; set; }
+        public DbSet<Quest> Quests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +33,7 @@ namespace Milujeme_plarka.Models
             //
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "Admin", Name = "Administrator" });
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "User", Name = "Uživatel" });
+
             var hasher = new PasswordHasher<ApplicationUser>();
             builder.Entity<ApplicationUser>().HasData(new ApplicationUser
             {

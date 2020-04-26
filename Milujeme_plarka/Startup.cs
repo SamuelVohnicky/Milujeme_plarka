@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Milujeme_plarka.Models;
 using Milujeme_plarka.Services;
+using Milujeme_plarka.Services.Champions;
 
 namespace Milujeme_plarka
 {
@@ -44,6 +45,7 @@ namespace Milujeme_plarka
             .AddDefaultTokenProviders();
 
             services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<IChampionService, ChampionService>();
             services.AddRazorPages(options =>
             {
 
