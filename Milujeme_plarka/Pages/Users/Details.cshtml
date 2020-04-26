@@ -1,0 +1,64 @@
+﻿@page
+@model Milujeme_plarka.Pages.Users.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detail uživatele</h2>
+<p>@Model.StatusMessage</p>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Osobní data</h3>
+        <dl>
+
+            <dt>Id</dt>
+            <dd>@Model.UserVM.Id </dd>
+            <dt>Uživatelské jméno</dt>
+            <dd>@Model.UserVM.UserName </dd>
+            <dt>Email</dt>
+            <dd>@Model.UserVM.Email </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <h3>Oprávnění</h3>
+        <h4>Role</h4>
+        @if (Model.UserVM.AllRoles.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Název</th>
+                        <th>Akce</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var r in Model.UserVM.AllRoles)
+                    {
+                        <tr>
+                            <td><a asp-page="../Roles/Details" asp-route-id="@r.Id">@r.Name</a></td>
+                            <td>
+                                @if (Model.UserVM.Roles.Contains(r.Name))
+                                {
+                                    <a class="btn btn-danger btn-sm" asp-page-handler="remove" asp-route-user="@Model.UserVM.Id" asp-route-role="@r.Id">Odstranit</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success btn-sm" asp-page-handler="join" asp-route-user="@Model.UserVM.Id" asp-route-role="@r.Id">Přidat</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>V systému nejsou žádné role.</p>
+        }
+        <h4>Claimy</h4>
+        <div>
+            <a class="btn btn-success btn-sm" asp-page="/Administration/Users/Claims" asp-route-id="@Model.UserVM.Id">Přidat</a>
+        </div>
+    </div>
+</div>
+<div><a asp-page="./Index" class="btn btn-light">Zpět</a></div>

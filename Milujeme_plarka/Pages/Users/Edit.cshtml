@@ -1,0 +1,32 @@
+﻿@page
+@model Milujeme_plarka.Pages.Users.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editace</h2>
+<p>@Model.StatusMessage</p>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Input.Id" />
+            <div class="form-group">
+                <label asp-for="Input.UserName"></label>
+                <input asp-for="Input.UserName" class="form-control" />
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <p>Neměňte zbytečně přihlašovací jméno, mohou na něj být navázaná data v jiných databázích.</p>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Uložit</button> <a class="btn btn-light" asp-page="Index">Zpět</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
