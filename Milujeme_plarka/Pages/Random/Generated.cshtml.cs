@@ -5,24 +5,37 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Milujeme_plarka.Models;
+using Milujeme_plarka.Services;
 using Milujeme_plarka.Services.Champions;
 
 
 namespace Milujeme_plarka.Pages.Random
 {
     
-    public class GeneratedModel
+    public class GeneratedModel : PageModel
     {
         private IChampionService _championService;
 
-        public void CreateModel(IChampionService championService)
+        public GeneratedModel(IChampionService championService)
         {
             _championService = championService;
         }
 
+        public string Champ = "fsd";
 
-        public string Champ = "gvjfgvj";//_championService.RandChamp; Tady se petřebuju odkázat na metodu RandChamp která vrací náhodného šampiona, to se mi ale nedaří
+        public void OnGet()
+        {
+            if (Convert.ToString(_championService.RandChamp()) != null)
+            {
+                Champ = Convert.ToString(_championService.RandChamp());
+            }
+            else Champ = "Championi neexistují";    
+            
+        }
+
+        
         public string Item1 = "1. Item";
         public string Item2 = "2. Item";
         public string Item3 = "3. Item";
