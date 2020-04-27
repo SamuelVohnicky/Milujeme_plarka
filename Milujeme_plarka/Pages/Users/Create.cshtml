@@ -11,6 +11,12 @@
         <form method="post">
             <h4>Nový uživatel</h4>
             <hr />
+            <div class="form-group">
+                <label asp-for="Input.UserName"></label>
+                <input asp-for="Input.UserName" class="form-control" />
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                <p>Pokud nezadáte vlastní uživatelské jméno, použije se automaticky email.</p>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Input.Email"></label>
@@ -30,4 +36,3 @@
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
 }
-

@@ -46,7 +46,7 @@ namespace Milujeme_plarka.Pages.Users
                 }
                 else
                 {
-                    StatusMessage = "ErrorPřidání uživatele se nepodařilo";
+                    StatusMessage = "Error Přidání uživatele se nepodařilo";
                 }
             }
             return Page();

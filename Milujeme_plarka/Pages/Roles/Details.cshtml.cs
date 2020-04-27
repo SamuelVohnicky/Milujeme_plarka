@@ -5,20 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Milujeme_plarka.Models;
 
 namespace Milujeme_plarka.Pages.Roles
 {
     public class DetailsModel : PageModel
     {
-        private RoleManager<IdentityRole<Guid>> _roleManager;
-        public IdentityRole<Guid> Role { get; set; }
+        private RoleManager<IdentityRole> _roleManager;
+        public IdentityRole Role { get; set; }
         public IList<System.Security.Claims.Claim> Claims;
-        public List<IdentityUser<Guid>> Users { get; set; }
+        public List<ApplicationUser> Users { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public DetailsModel(RoleManager<IdentityRole<Guid>> roleManager)
+        public DetailsModel(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }

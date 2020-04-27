@@ -12,7 +12,7 @@ namespace Milujeme_plarka.Pages.Users
     public class PasswordModel : PageModel
     {
         private UserManager<ApplicationUser> _userManager;
-        public IdentityUser ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
         private readonly ApplicationDbContext _context;
 
         [BindProperty]

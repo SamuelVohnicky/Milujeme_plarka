@@ -10,20 +10,20 @@ namespace Milujeme_plarka.Pages.Roles
 {
     public class IndexModel : PageModel
     {
-        private RoleManager<IdentityRole<Guid>> _roleManager;
-        public List<IdentityRole<Guid>> Roles { get; set; }
+        private RoleManager<IdentityRole> _roleManager;
+        public List<IdentityRole> Roles { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public IndexModel(RoleManager<IdentityRole<Guid>> roleManager)
+        public IndexModel(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }
 
         public void OnGet()
         {
-            Roles = new List<IdentityRole<Guid>>();
+            Roles = new List<IdentityRole>();
             Roles = _roleManager.Roles.OrderBy(r => r.Name).ToList();
         }
     }

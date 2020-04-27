@@ -32,7 +32,7 @@ namespace Milujeme_plarka
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequiredLength = 6;
@@ -46,9 +46,12 @@ namespace Milujeme_plarka
 
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IChampionService, ChampionService>();
-            services.AddRazorPages(options =>
+            services.AddRazorPages();
+            services.ConfigureApplicationCookie(options =>
             {
-
+                options.LoginPath = "/Identity/Account/Login";
+                options.LogoutPath = "/Identity/Account/Logout";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
             });
         }
 
