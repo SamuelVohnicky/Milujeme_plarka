@@ -54,11 +54,12 @@ namespace Milujeme_plarka.Services
             return null;
         }
 
-        private List<Champion> Champs { get; set; }
+        private List<Champion> Champs { get { return _db.Champions.ToList(); } }
         public Champion RandChamp()
         {
-            Random rndCh = new Random(Champs.Count);
-            return Champs[Convert.ToInt32(rndCh)];
+            Random rndCh = new Random();
+            int randCh = rndCh.Next(Champs.Count);
+            return Champs[randCh];
         }
 
         public bool Exists(int id)
