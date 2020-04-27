@@ -10,13 +10,13 @@ namespace Milujeme_plarka.Pages.Roles
 {
     public class DeleteModel : PageModel
     {
-        private RoleManager<IdentityRole<Guid>> _roleManager;
-        public IdentityRole<Guid> IdentityRole { get; set; }
+        private RoleManager<IdentityRole> _roleManager;
+        public IdentityRole IdentityRole { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public DeleteModel(RoleManager<IdentityRole<Guid>> roleManager)
+        public DeleteModel(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }

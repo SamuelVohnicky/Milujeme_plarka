@@ -19,6 +19,5 @@ namespace Milujeme_plarka.Models
         public int Summoner1Id { get; set; }
         public int Summoner2Id { get; set; }
         public int QuestId { get; set; }
-
     }
 }

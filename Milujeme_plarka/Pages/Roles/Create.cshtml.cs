@@ -11,7 +11,7 @@ namespace Milujeme_plarka.Pages.Roles
 {
     public class CreateModel : PageModel
     {
-        private RoleManager<IdentityRole<Guid>> _roleManager;
+        private RoleManager<IdentityRole> _roleManager;
         [BindProperty]
         public InputModel Input { get; set; }
 
@@ -25,7 +25,7 @@ namespace Milujeme_plarka.Pages.Roles
             public string Name { get; set; }
         }
 
-        public CreateModel(RoleManager<IdentityRole<Guid>> roleManager)
+        public CreateModel(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }
@@ -39,7 +39,7 @@ namespace Milujeme_plarka.Pages.Roles
         {
             if (ModelState.IsValid)
             {
-                IdentityRole<Guid> role = new IdentityRole<Guid>
+                IdentityRole role = new IdentityRole
                 {
                     Name = Input.Name
                 };

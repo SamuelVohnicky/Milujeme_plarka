@@ -31,7 +31,7 @@ namespace Milujeme_plarka.Models
             builder.Entity<Quest>().HasData(new Quest { QuestGamePhase = 1, QuestId = 1, QuestQuote = "Chcipni", Role = 1 });
 
             //
-            builder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "Admin", Name = "Administrator" });
+            builder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "Admin", Name = "Admin" });
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "User", Name = "Uživatel" });
 
             var hasher = new PasswordHasher<ApplicationUser>();
@@ -42,8 +42,8 @@ namespace Milujeme_plarka.Models
                 NormalizedEmail = "ADMIN@ADMIN.ADMIN",
                 EmailConfirmed = true,
                 LockoutEnabled = false,
-                UserName = "Admin",
-                NormalizedUserName = "ADMIN",
+                UserName = "admin@admin.admin",
+                NormalizedUserName = "ADMIN@ADMIN.ADMIN",
                 PasswordHash = hasher.HashPassword(null, "Admin_1234"),
                 SecurityStamp = string.Empty
             });

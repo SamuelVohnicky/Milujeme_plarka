@@ -16,7 +16,7 @@ namespace Milujeme_plarka.Pages.Users
     public class IndexModel : PageModel
     {
         private UserManager<ApplicationUser> _userManager;
-        private RoleManager<ApplicationUser> _roleManager;
+        private RoleManager<IdentityRole> _roleManager;
         public PaginatedList<UserViewModel> Users { get; set; }
 
         public string IdSort { get; set; }
@@ -29,14 +29,14 @@ namespace Milujeme_plarka.Pages.Users
 
         [TempData]
         public string StatusMessage { get; set; }
-        public IndexModel(UserManager<ApplicationUser> userManager, RoleManager<ApplicationUser> roleManager)
+        public IndexModel(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             Roles = new List<SelectListItem>();
-            foreach (var r in _roleManager.Roles.OrderBy(o => o.UserName))
+            foreach (var r in _roleManager.Roles.OrderBy(o => o.Name))
             {
-                Roles.Add(new SelectListItem(r.UserName, Convert.ToString(r.Id)));
+                Roles.Add(new SelectListItem(r.Name, Convert.ToString(r.Id)));
             }
         }
 

@@ -49,13 +49,13 @@ namespace Milujeme_plarka.Migrations
                         new
                         {
                             Id = "Admin",
-                            ConcurrencyStamp = "f0aae651-bedf-4d47-ae3c-73d7f01d7a12",
-                            Name = "Administrator"
+                            ConcurrencyStamp = "1c17d32c-c9f6-4ad4-9aa6-84f370dcc1a5",
+                            Name = "Admin"
                         },
                         new
                         {
                             Id = "User",
-                            ConcurrencyStamp = "0a447ed8-3ea2-4dd1-af46-aeb053c8a3f1",
+                            ConcurrencyStamp = "bc396df5-79d2-4bcc-9986-2cff409b8780",
                             Name = "Uživatel"
                         });
                 });
@@ -354,11 +354,35 @@ namespace Milujeme_plarka.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ChampionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Item1Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Item2Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Item3Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Item4Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Item5Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Item6Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Summoner1Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Summoner2Id")
+                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
 
@@ -367,17 +391,27 @@ namespace Milujeme_plarka.Migrations
                         {
                             Id = "ADMINUSER",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "deeb1968-5000-4a71-8838-d605b82de06a",
+                            ConcurrencyStamp = "9591580b-dee9-4aff-8449-0f670ac6b674",
                             Email = "admin@admin.admin",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.ADMIN",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDaHoYCNeFvoGaNHGFlQpS2MnvU7t310xGx6y6HEappHFA30fXQlpn286H1ORazQ4g==",
+                            NormalizedUserName = "ADMIN@ADMIN.ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDYG4/ibEe5dlW1Q+n83Iq7HB6dVAqzJUqZOH3EF/XsU1+Nn+K85b17b+7aHjmM/pw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
-                            UserName = "Admin"
+                            UserName = "admin@admin.admin",
+                            ChampionId = 0,
+                            Item1Id = 0,
+                            Item2Id = 0,
+                            Item3Id = 0,
+                            Item4Id = 0,
+                            Item5Id = 0,
+                            Item6Id = 0,
+                            QuestId = 0,
+                            Summoner1Id = 0,
+                            Summoner2Id = 0
                         });
                 });
 

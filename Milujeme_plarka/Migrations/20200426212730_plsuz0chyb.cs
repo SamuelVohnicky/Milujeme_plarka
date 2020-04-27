@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Milujeme_plarka.Migrations
 {
-    public partial class init : Migration
+    public partial class plsuz0chyb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,8 +41,16 @@ namespace Milujeme_plarka.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true)
+                    ChampionId = table.Column<int>(nullable: true),
+                    Item1Id = table.Column<int>(nullable: true),
+                    Item2Id = table.Column<int>(nullable: true),
+                    Item3Id = table.Column<int>(nullable: true),
+                    Item4Id = table.Column<int>(nullable: true),
+                    Item5Id = table.Column<int>(nullable: true),
+                    Item6Id = table.Column<int>(nullable: true),
+                    Summoner1Id = table.Column<int>(nullable: true),
+                    Summoner2Id = table.Column<int>(nullable: true),
+                    QuestId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -216,14 +224,14 @@ namespace Milujeme_plarka.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "Admin", "f0aae651-bedf-4d47-ae3c-73d7f01d7a12", "Administrator", null },
-                    { "User", "0a447ed8-3ea2-4dd1-af46-aeb053c8a3f1", "Uživatel", null }
+                    { "Admin", "1c17d32c-c9f6-4ad4-9aa6-84f370dcc1a5", "Admin", null },
+                    { "User", "bc396df5-79d2-4bcc-9986-2cff409b8780", "Uživatel", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "FirstName", "LastName" },
-                values: new object[] { "ADMINUSER", 0, "deeb1968-5000-4a71-8838-d605b82de06a", "ApplicationUser", "admin@admin.admin", true, false, null, "ADMIN@ADMIN.ADMIN", "ADMIN", "AQAAAAEAACcQAAAAEDaHoYCNeFvoGaNHGFlQpS2MnvU7t310xGx6y6HEappHFA30fXQlpn286H1ORazQ4g==", null, false, "", false, "Admin", null, null });
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "ChampionId", "Item1Id", "Item2Id", "Item3Id", "Item4Id", "Item5Id", "Item6Id", "QuestId", "Summoner1Id", "Summoner2Id" },
+                values: new object[] { "ADMINUSER", 0, "9591580b-dee9-4aff-8449-0f670ac6b674", "ApplicationUser", "admin@admin.admin", true, false, null, "ADMIN@ADMIN.ADMIN", "ADMIN@ADMIN.ADMIN", "AQAAAAEAACcQAAAAEDYG4/ibEe5dlW1Q+n83Iq7HB6dVAqzJUqZOH3EF/XsU1+Nn+K85b17b+7aHjmM/pw==", null, false, "", false, "admin@admin.admin", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 
             migrationBuilder.InsertData(
                 table: "Champions",

@@ -12,15 +12,15 @@ namespace Milujeme_plarka.Pages.Roles
 {
     public class EditModel : PageModel
     {
-        private RoleManager<IdentityRole<Guid>> _roleManager;
+        private RoleManager<IdentityRole> _roleManager;
         [BindProperty]
-        public IdentityRole<Guid> IdentityRole { get; set; }
+        public IdentityRole IdentityRole { get; set; }
         private readonly ApplicationDbContext _context;
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public EditModel(RoleManager<IdentityRole<Guid>> roleManager, ApplicationDbContext context)
+        public EditModel(RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
         {
             _roleManager = roleManager;
             _context = context;
@@ -42,18 +42,18 @@ namespace Milujeme_plarka.Pages.Roles
             return Page();
         }
 
-        //public IActionResult OnPost()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Page();
-        //    }
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
-        //    var roleFromDb = _context.Roles.Where(r => r.Id == IdentityRole.Id).FirstOrDefault();
-        //    roleFromDb.Name = IdentityRole.Name;
-        //    _context.SaveChanges();
+            var roleFromDb = _context.Roles.Where(r => r.Id == IdentityRole.Id).FirstOrDefault();
+            roleFromDb.Name = IdentityRole.Name;
+            _context.SaveChanges();
 
-        //    return RedirectToPage("./Index");
-        //}
+            return RedirectToPage("./Index");
+        }
     }
 }
