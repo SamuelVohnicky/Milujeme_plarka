@@ -27,15 +27,10 @@ namespace Milujeme_plarka.Pages.Random
 
         public void OnGet()
         {
-            if (Convert.ToString(_championService.RandChamp()) != null)
-            {
-                Champ = Convert.ToString(_championService.RandChamp());
-            }
-            else Champ = "Championi neexistují";    
-            
+            Champ = _championService.RandChamp().ChampionName;
         }
 
-        
+
         public string Item1 = "1. Item";
         public string Item2 = "2. Item";
         public string Item3 = "3. Item";

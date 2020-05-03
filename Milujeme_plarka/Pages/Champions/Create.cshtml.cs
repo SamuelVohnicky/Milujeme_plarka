@@ -56,7 +56,7 @@ namespace Milujeme_plarka.Pages.Champions
                     return Page();
                 }                
             }
-            ModelState.AddModelError("", "There are no user data available.");
+            ModelState.AddModelError("", "There are no champion data available.");
             return Page();
         }
 
