@@ -4,5 +4,19 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+@*<h2>Odstranění čampa</h2>
+<h3>Opravdu chcete čampa odstranit?</h3>
+<div>
+    <dl>
+        <dt>čamp</dt>
+        <dd>@Model.IdentityRole.Name </dd>
+        <dt>Id</dt>
+        <dd>@Model.IdentityRole.Id </dd>
+    </dl>
 
+    <form method="post">
+        <input type="hidden" asp-for=".Id" />
+        <input type="submit" value="Odstranit" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn">Zpět</a>
+    </form>
+</div>*@

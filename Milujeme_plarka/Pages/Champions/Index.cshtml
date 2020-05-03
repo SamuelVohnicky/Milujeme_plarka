@@ -7,9 +7,9 @@
 <h2>Seznam čempů</h2>
 <p>@Model.StatusMessage</p>
 <div><a class="btn btn-success m-1" asp-page="./Create">Nová</a></div>
-@if (Model.champions.Count == 0)
+@if (Model.Champions.Count == 0)
 {
-    <p>Žádné role nejsou.</p>
+    <p>žádní čempové ještě nejsou</p>
 }
 else
 {
@@ -21,14 +21,14 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var role in Model.champions)
+            @foreach (var champion in Model.Champions)
             {
                 <tr>
-                    <td>@role</td>
+                    <td>@champion.ChampionName</td>
                     <td>
-                        @*<a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@">Podrobnosti</a>
-                        <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-id="@role.Id">Upravit</a>
-                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@role.Id">Odstranit</a>*@
+                        <a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@champion.ChampionId">Podrobnosti</a>
+                        <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-id="@champion.ChampionId">Upravit</a>
+                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@champion.ChampionId">Odstranit</a>
                     </td>
                 </tr>
             }

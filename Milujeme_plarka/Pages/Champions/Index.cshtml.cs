@@ -16,21 +16,22 @@ namespace Milujeme_plarka.Pages.Champions
 {
     public class IndexModel : PageModel
     {
-        private RoleManager<IdentityRole> _roleManager;
-        public List<Champion> champions { get; set; }
+        private ApplicationDbContext _db;
+
+        public List<Champion> Champions { get; set; }
+
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        //public IndexModel(<Champion> roleManager)
-        //{
-        //    _roleManager = roleManager;
-        //}
+        public IndexModel(ApplicationDbContext db)
+        {
+            _db = db;
+        }
 
         public void OnGet()
         {
-            champions = new List<Champion>();
-            //champions = _roleManager.Roles.OrderBy(r => r.Name).ToList();
+            Champions = _db.Champions.OrderBy(r => r.ChampionName).ToList();
         }
     }
 }
