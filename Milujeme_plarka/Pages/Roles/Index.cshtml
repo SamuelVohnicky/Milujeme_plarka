@@ -4,9 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Seznam rolí uživatelů</h2>
+<h2>Tady máš rolos</h2>
 <p>@Model.StatusMessage</p>
-<div><a class="btn btn-success m-1" asp-page="./Create">Nová</a></div>
+<div><a class="btn btn-primary btn-lg" asp-page="./Create">Přidej sem roli kámo</a></div>
 @if (Model.Roles.Count == 0)
 {
     <p>Žádné role nejsou.</p>
@@ -16,8 +16,8 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Název</th>
-                <th>Akce</th>
+                <th>nazve</th>
+                <th>ekšn</th>
             </tr>
         </thead>
         <tbody>
@@ -26,9 +26,9 @@ else
                 <tr>
                     <td>@role.Name</td>
                     <td>
-                        <a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@role.Id">Podrobnosti</a>
-                        <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-id="@role.Id">Upravit</a>
-                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@role.Id">Odstranit</a>
+                        <a class="btn btn-outline-primary" asp-page="./Details" asp-route-id="@role.Id">Podrobnosti</a>
+                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@role.Id">Upravit</a>
+                        <a class="btn btn-outline-warning" asp-page="./Delete" asp-route-id="@role.Id">Odstranit</a>
                     </td>
                 </tr>
             }
