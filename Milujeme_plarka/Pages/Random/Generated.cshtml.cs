@@ -29,6 +29,10 @@ namespace Milujeme_plarka.Pages.Random
         {
             Champ = _championService.RandChamp().ChampionName;
         }
+        public void OnGetChamp()
+        {
+            Champ = _championService.RandChamp().ChampionName;
+        }
 
 
         public string Item1 = "1. Item";

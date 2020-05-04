@@ -13,11 +13,13 @@ namespace Milujeme_plarka.Pages.Champions
     {
         [TempData]
         public string StatusMessage { get; set; }
+
         public EditModel(IChampionService championService, ApplicationDbContext context)
         {
             _championService = championService;
             _context = context;
         }
+        [BindProperty]
         public Champion Champion { get; set; }
         private IChampionService _championService;
         private readonly ApplicationDbContext _context;
