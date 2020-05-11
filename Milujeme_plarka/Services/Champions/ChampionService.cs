@@ -16,13 +16,14 @@ namespace Milujeme_plarka.Services
         {
             _db = db;
         }
-        public async Task<Champion> Create(Champion champion)
+        public async Task<Champion> Create(Champion champion, string path)
         {
             var newChampion = new Champion
             {
                 ChampionId = champion.ChampionId,
                 ChampionName = champion.ChampionName,
-                Mellee = champion.Mellee
+                Mellee = champion.Mellee,
+                Image = path
             };
             _db.Champions.Add(newChampion);
             await _db.SaveChangesAsync();
@@ -55,11 +56,16 @@ namespace Milujeme_plarka.Services
         }
 
         private List<Champion> Champs { get { return _db.Champions.ToList(); } }
-        public Champion RandChamp()
+
+        public List<Champion> Champions { get; set; }
+
+        public int RandChamp()
         {
+            Champions = _db.Champions.ToList();
             Random rndCh = new Random();
             int randCh = rndCh.Next(Champs.Count);
-            return Champs[randCh];
+            Champion champion = Champions[randCh];
+            return champion.ChampionId;
         }
 
         public bool Exists(int id)

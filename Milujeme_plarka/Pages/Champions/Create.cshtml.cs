@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Milujeme_plarka.Models;
+using Milujeme_plarka.Services;
 using Milujeme_plarka.Services.Champions;
 
 namespace Milujeme_plarka.Pages.Champions
@@ -34,29 +37,38 @@ namespace Milujeme_plarka.Pages.Champions
         //    return Page();
         //}
 
-        public async Task<IActionResult> OnPostAsync()
+        [HttpPost]
+        public async Task<IActionResult> OnPostAsync(IFormFile file)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            var currentUserId = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault();
-            if (currentUserId != null)
+            try
             {
-                try
+                var fileName = Path.GetFileName(file.FileName);
+                var filePath = "wwwroot/imgs/" + fileName;
+                var fileImage = "/imgs/" + fileName;
+                // If file with same name exists delete it
+                if (System.IO.File.Exists(filePath))
                 {
-                    var bm = await _championService.Create(Champion);
-                    SuccessMessage = "Champion been added.";
-                    return RedirectToPage("./Index");
+                    System.IO.File.Delete(filePath);
                 }
-                catch(Exception ex)
+
+                // Create new local file and copy contents of uploaded file
+                using (var localFile = System.IO.File.OpenWrite(filePath))
+                using (var uploadedFile = file.OpenReadStream())
                 {
-                    ModelState.AddModelError("", ex.Message);
-                    ErrorMessage = "Storing of champion has failed.";
-                    return Page();
-                }                
+                    uploadedFile.CopyTo(localFile);
+                }
+                var bm = await _championService.Create(Champion, fileImage);
+                return RedirectToPage("./Index");
             }
-            ModelState.AddModelError("", "There are no champion data available.");
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                ErrorMessage = "Armor se nepodařilo přidat";
+            }
             return Page();
         }
 

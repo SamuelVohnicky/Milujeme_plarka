@@ -49,13 +49,13 @@ namespace Milujeme_plarka.Migrations
                         new
                         {
                             Id = "Admin",
-                            ConcurrencyStamp = "1c17d32c-c9f6-4ad4-9aa6-84f370dcc1a5",
+                            ConcurrencyStamp = "1c86f84d-4f9a-4628-88e9-412c2af37810",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "User",
-                            ConcurrencyStamp = "bc396df5-79d2-4bcc-9986-2cff409b8780",
+                            ConcurrencyStamp = "0103e4d3-8624-4f7e-9916-81c2fd2d6ec0",
                             Name = "Uživatel"
                         });
                 });
@@ -253,6 +253,9 @@ namespace Milujeme_plarka.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("Mellee")
                         .HasColumnType("bit");
 
@@ -391,13 +394,13 @@ namespace Milujeme_plarka.Migrations
                         {
                             Id = "ADMINUSER",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9591580b-dee9-4aff-8449-0f670ac6b674",
+                            ConcurrencyStamp = "b43b8e1f-170c-44ca-b7ad-9d0730e740d5",
                             Email = "admin@admin.admin",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.ADMIN",
                             NormalizedUserName = "ADMIN@ADMIN.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDYG4/ibEe5dlW1Q+n83Iq7HB6dVAqzJUqZOH3EF/XsU1+Nn+K85b17b+7aHjmM/pw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAfzF8J8V+FqJQMbn1pBThg3OlsFpQ1G95nuixgfxH9xlFIqRrAPInC2o4dLKTifyQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

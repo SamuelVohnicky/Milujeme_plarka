@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,21 +18,35 @@ namespace Milujeme_plarka.Pages.Random
     public class GeneratedModel : PageModel
     {
         private IChampionService _championService;
+        private ApplicationDbContext _db;
+        private UserManager<ApplicationUser> _usermanager;
+        public Champion Champion;
 
-        public GeneratedModel(IChampionService championService)
+
+        public GeneratedModel(IChampionService championService, ApplicationDbContext db, UserManager<ApplicationUser> userManager)
         {
             _championService = championService;
+            _db = db;
+            _usermanager = userManager;
         }
 
+        private ApplicationUser user { get;set; }
         public string Champ = "fsd";
 
-        public void OnGet()
+        public void OnGetAsync()
         {
-            Champ = _championService.RandChamp().ChampionName;
+            var userId = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            user = _usermanager.FindByIdAsync(userId).Result;
+            Champion = _db.Champions.Find(user.ChampionId);
         }
-        public void OnGetChamp()
+
+        public async Task<IActionResult> OnGetChampAsync()
         {
-            Champ = _championService.RandChamp().ChampionName;
+            var userId = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            user = _usermanager.FindByIdAsync(userId).Result;
+            user.ChampionId = _championService.RandChamp();
+            _db.SaveChanges();
+            return RedirectToPage("Generated");
         }
 
 

@@ -46,7 +46,7 @@ namespace Milujeme_plarka.Pages.Champions
             {
                 await _championService.Delete(id);
             }
-
+            System.IO.File.Delete("wwwroot/" + Champion.Image);
             return RedirectToPage("./Index");
         }
     }

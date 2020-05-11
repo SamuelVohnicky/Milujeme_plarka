@@ -14,7 +14,6 @@ namespace Milujeme_plarka.Models
         public string ChampionName { get; set; }
         [Required]
         public bool Mellee { get; set; }
-        //[Required]
-        //public string Url { get; set; }
+        public string Image { get; set; }
     }
 }
