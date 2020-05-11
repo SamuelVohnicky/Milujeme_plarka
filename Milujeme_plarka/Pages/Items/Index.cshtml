@@ -1,0 +1,38 @@
+﻿@page
+@model Milujeme_plarka.Pages.Items.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>tady jsou ty věci</h2>
+<p>@Model.StatusMessage</p>
+<div><a class="btn btn-primary btn-lg" asp-page="./Create">přidej sem něco jako by item y</a></div>
+@if (Model.Items.Count == 0)
+{
+    <p>žádní itombé ještě nejsou</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>it</th>
+                <th>ekšn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var champion in Model.Items)
+            {
+                <tr>
+                    <td>@champion.ItemName</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-page="./Details" asp-route-id="@champion.ItemId">Podrobnosti</a>
+                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@champion.ItemId">Upravit</a>
+                        <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@champion.ItemId">Odstranit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

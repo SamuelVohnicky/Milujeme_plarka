@@ -14,5 +14,6 @@ namespace Milujeme_plarka.Models
         public string ItemName { get; set; }
         [Required]
         public bool Mellee { get; set; }
+        public string Image { get; set; }
     }
 }

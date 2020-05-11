@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Milujeme_plarka.Models;
-using Milujeme_plarka.Services;
-using Milujeme_plarka.Services.Champions;
+using Milujeme_plarka.Services.Items;
 
-namespace Milujeme_plarka.Pages.Champions
+namespace Milujeme_plarka.Pages.Items
 {
     public class CreateModel : PageModel
     {
         [BindProperty]
-        public Champion Champion { get; set; }
+        public Item Item{ get; set; }
 
-        private IChampionService _championService;
+        private IItemService _itemService;
         [TempData]
         public string ErrorMessage { get; set; }
         [TempData]
@@ -26,9 +24,9 @@ namespace Milujeme_plarka.Pages.Champions
         [TempData]
         public string InfoMessage { get; set; }
 
-        public CreateModel(IChampionService championService)
+        public CreateModel(IItemService itemService)
         {
-            _championService = championService;
+            _itemService = itemService;
         }
 
         //public async Task<IActionResult> OnGetAsync()
@@ -61,7 +59,7 @@ namespace Milujeme_plarka.Pages.Champions
                 {
                     uploadedFile.CopyTo(localFile);
                 }
-                var bm = await _championService.Create(Champion, fileImage);
+                var bm = await _itemService.Create(Item, fileImage);
                 return RedirectToPage("./Index");
             }
             catch (Exception ex)

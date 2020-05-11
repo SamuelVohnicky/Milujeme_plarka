@@ -5,19 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Milujeme_plarka.Models;
-using Milujeme_plarka.Services.Champions;
+using Milujeme_plarka.Services.Items;
 
-namespace Milujeme_plarka.Pages.Champions
+namespace Milujeme_plarka.Pages.Items
 {
     public class DeleteModel : PageModel
     {
-        public Champion Champion { get; set; }
-        private IChampionService _championService;
-        public DeleteModel(IChampionService championService)
+        public Item Item{ get; set; }
+        private IItemService _itemService;
+        public DeleteModel(IItemService itemService)
         {
-            _championService = championService;
+            _itemService = itemService;
         }
-        
+
         public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
@@ -25,9 +25,9 @@ namespace Milujeme_plarka.Pages.Champions
                 return NotFound();
             }
 
-            Champion = await _championService.Delete(id);
+            Item = await _itemService.Delete(id);
 
-            if (Champion == null)
+            if (Item == null)
             {
                 return NotFound();
             }
@@ -40,11 +40,11 @@ namespace Milujeme_plarka.Pages.Champions
                 return NotFound();
             }
 
-            Champion = _championService.Delete(id).Result;
+            Item = _itemService.Delete(id).Result;
 
-            if (Champion != null)
+            if (Item != null)
             {
-                await _championService.Delete(id);
+                await _itemService.Delete(id);
             }
             //System.IO.File.Delete("wwwroot/imgs/" + Champion.Image);
             return RedirectToPage("./Index");

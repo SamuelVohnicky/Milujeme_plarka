@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Milujeme_plarka.Models;
 using Milujeme_plarka.Services;
 using Milujeme_plarka.Services.Champions;
+using Milujeme_plarka.Services.Items;
 
 namespace Milujeme_plarka
 {
@@ -46,6 +47,7 @@ namespace Milujeme_plarka
 
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IChampionService, ChampionService>();
+            services.AddScoped<IItemService, ItemService>();
             services.AddRazorPages();
             services.ConfigureApplicationCookie(options =>
             {

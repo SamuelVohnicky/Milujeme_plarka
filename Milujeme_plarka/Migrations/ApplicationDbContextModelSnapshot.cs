@@ -49,13 +49,13 @@ namespace Milujeme_plarka.Migrations
                         new
                         {
                             Id = "Admin",
-                            ConcurrencyStamp = "1c86f84d-4f9a-4628-88e9-412c2af37810",
+                            ConcurrencyStamp = "73b158a3-2c3e-453c-8ed7-3a8d7e0436cb",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "User",
-                            ConcurrencyStamp = "0103e4d3-8624-4f7e-9916-81c2fd2d6ec0",
+                            ConcurrencyStamp = "4fd93892-9a14-49e1-ba7e-0382e97962be",
                             Name = "Uživatel"
                         });
                 });
@@ -279,6 +279,9 @@ namespace Milujeme_plarka.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ItemName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -394,13 +397,13 @@ namespace Milujeme_plarka.Migrations
                         {
                             Id = "ADMINUSER",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b43b8e1f-170c-44ca-b7ad-9d0730e740d5",
+                            ConcurrencyStamp = "0aa58118-dc2a-4873-b6d7-e0841df50da9",
                             Email = "admin@admin.admin",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.ADMIN",
                             NormalizedUserName = "ADMIN@ADMIN.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAfzF8J8V+FqJQMbn1pBThg3OlsFpQ1G95nuixgfxH9xlFIqRrAPInC2o4dLKTifyQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHzHzPAkU0TgWyZ/7s6yW3SBDM4YjOwLI4O6bo/U4OiI6ZzVfboMYOrgtBDrMb23tg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

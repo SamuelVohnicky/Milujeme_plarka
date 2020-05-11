@@ -1,0 +1,22 @@
+﻿@page
+@model Milujeme_plarka.Pages.Items.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Odstranění toho tamtoho itemu</h2>
+<h3>Opravdu chcete itema odstranit?</h3>
+<div>
+    <dl>
+        <dt>čamp</dt>
+        <dd>@Model.Item.ItemName</dd>
+        <dt>Id</dt>
+        <dd>@Model.Item.ItemName</dd>
+    </dl>
+
+    <form method="post">
+        <input type="submit" value="Odstranit" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn">Zpět</a>
+    </form>
+</div>
+

@@ -8,36 +8,43 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Milujeme_plarka.Models;
-using Milujeme_plarka.Services.Champions;
 using Milujeme_plarka.Services.Items;
 
-namespace Milujeme_plarka.Pages
+namespace Milujeme_plarka.Pages.Items
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
         private IItemService _itemService;
-        private IChampionService _championService;
-        private UserManager<ApplicationUser> _usermanager;
         private ApplicationDbContext _db;
-        public ApplicationUser user { get; set; }
-        public IndexModel(ILogger<IndexModel> logger, IItemService itemService, IChampionService championService, ApplicationDbContext db, UserManager<ApplicationUser>userManager)
+        private UserManager<ApplicationUser> _usermanager;
+        private ILogger<IndexModel> _logger;
+        private ApplicationUser user;
+
+        public Item Item { get; set; }
+
+        public List<Item> Items { get; set; }
+
+        [TempData]
+        public string StatusMessage { get; set; }
+
+        public IndexModel(IItemService itemService, ApplicationDbContext db, UserManager<ApplicationUser> userManager, ILogger<IndexModel> logger)
         {
-            _logger = logger;
+            _itemService = itemService;
             _db = db;
             _usermanager = userManager;
-            _championService = championService;
-            _itemService = itemService;
+            _logger = logger;
         }
-
         public async Task<IActionResult> OnGetRandomAsync()
         {
             var userId = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
             user = _usermanager.FindByIdAsync(userId).Result;
-            user.ChampionId = _championService.RandChamp();
             user.Item1Id = _itemService.RandItem();
             _db.SaveChanges();
             return RedirectToPage("./Generated");
+        }
+        public void OnGet()
+        {
+            Items = _db.Items.OrderBy(r => r.ItemName).ToList();
         }
     }
 }
