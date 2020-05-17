@@ -1,17 +1,17 @@
 ﻿@page
-@model Milujeme_plarka.Pages.Items.DeleteModel
+@model Milujeme_plarka.Pages.Quests.DeleteModel
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h2>Odstranění toho tamtoho itemu</h2>
-<h3>Opravdu chcete itema odstranit?</h3>
+<h2>Odstranění toho jo tady jo ukoly</h2>
+<h3>Opravdu chcete yukolu odstranit?</h3>
 <div>
     <dl>
         <dt>čamp</dt>
-        <dd>@Model.Item.ItemName</dd>
+        <dd>@Model.Quest.QuestQuote</dd>
         <dt>Id</dt>
-        <dd>@Model.Item.ItemId</dd>
+        <dd>@Model.Quest.QuestId</dd>
     </dl>
 
     <form method="post">
@@ -19,4 +19,3 @@
         <a asp-page="./Index" class="btn">Zpět</a>
     </form>
 </div>
-

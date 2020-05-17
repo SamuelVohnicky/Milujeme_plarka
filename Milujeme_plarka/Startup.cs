@@ -15,6 +15,8 @@ using Milujeme_plarka.Models;
 using Milujeme_plarka.Services;
 using Milujeme_plarka.Services.Champions;
 using Milujeme_plarka.Services.Items;
+using Milujeme_plarka.Services.Quests;
+using Milujeme_plarka.Services.Summoners;
 
 namespace Milujeme_plarka
 {
@@ -48,6 +50,8 @@ namespace Milujeme_plarka
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IChampionService, ChampionService>();
             services.AddScoped<IItemService, ItemService>();
+            services.AddScoped<IQuestService, QuestService>();
+            services.AddScoped<ISummonerService, SummonerService>();
             services.AddRazorPages();
             services.ConfigureApplicationCookie(options =>
             {

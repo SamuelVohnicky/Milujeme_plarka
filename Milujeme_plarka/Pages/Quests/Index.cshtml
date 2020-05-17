@@ -1,0 +1,38 @@
+﻿@page
+@model Milujeme_plarka.Pages.Quests.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>tady jsou ty ukoly nebo</h2>
+<p>@Model.StatusMessage</p>
+<div><a class="btn btn-primary btn-lg" asp-page="./Create">přidej sem něco jako by item y</a></div>
+@if (Model.Quests.Count == 0)
+{
+    <p>žádní itombé ještě nejsou</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>waer</th>
+                <th>ekšn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var quest in Model.Quests)
+            {
+                <tr>
+                    <td>@quest.QuestQuote</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-page="./Details" asp-route-id="@quest.QuestId">Podrobnosti</a>
+                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@quest.QuestId">Upravit</a>
+                        <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@quest.QuestId">Odstranit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

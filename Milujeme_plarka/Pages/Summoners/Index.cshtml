@@ -1,0 +1,37 @@
+﻿@page
+@model Milujeme_plarka.Pages.Summoners.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>tady jsou ty sumereny</h2>
+<p>@Model.StatusMessage</p>
+<div><a class="btn btn-primary btn-lg" asp-page="./Create">dej tam sten spell jbracho neboi amerika bune</a></div>
+@if (Model.Summoners.Count == 0)
+{
+    <p>žádní sumřer nejní</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>it</th>
+                <th>ekšn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var champion in Model.Summoners)
+            {
+                <tr>
+                    <td>@champion.SummonerName</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-page="./Details" asp-route-id="@champion.SummonerId">Podrobnosti</a>
+                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@champion.SummonerId">Upravit</a>
+                        <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@champion.SummonerId">Odstranit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

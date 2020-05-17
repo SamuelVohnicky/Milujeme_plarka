@@ -12,6 +12,6 @@ namespace Milujeme_plarka.Models
         public int SummonerId { get; set; }
         [Required]
         public string SummonerName { get; set; }
-
+        public string Image { get; set; }
     }
 }

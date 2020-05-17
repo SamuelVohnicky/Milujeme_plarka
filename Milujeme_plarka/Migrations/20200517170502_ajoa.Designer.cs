@@ -10,8 +10,8 @@ using Milujeme_plarka.Models;
 namespace Milujeme_plarka.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200511114023_ahojo")]
-    partial class ahojo
+    [Migration("20200517170502_ajoa")]
+    partial class ajoa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,13 +51,13 @@ namespace Milujeme_plarka.Migrations
                         new
                         {
                             Id = "Admin",
-                            ConcurrencyStamp = "73b158a3-2c3e-453c-8ed7-3a8d7e0436cb",
+                            ConcurrencyStamp = "08e72f62-d299-45d2-b6a3-5a30f34f2ab5",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "User",
-                            ConcurrencyStamp = "4fd93892-9a14-49e1-ba7e-0382e97962be",
+                            ConcurrencyStamp = "4510c009-c514-4de6-a287-818da26f4ac6",
                             Name = "Uživatel"
                         });
                 });
@@ -342,6 +342,9 @@ namespace Milujeme_plarka.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SummonerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -399,13 +402,13 @@ namespace Milujeme_plarka.Migrations
                         {
                             Id = "ADMINUSER",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0aa58118-dc2a-4873-b6d7-e0841df50da9",
+                            ConcurrencyStamp = "1d7604ec-b824-4c5e-abf0-af0a7d42db06",
                             Email = "admin@admin.admin",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.ADMIN",
                             NormalizedUserName = "ADMIN@ADMIN.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHzHzPAkU0TgWyZ/7s6yW3SBDM4YjOwLI4O6bo/U4OiI6ZzVfboMYOrgtBDrMb23tg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF0qNsAg8Tb/MJCOEbp3PjXdIKpjC5XK6yxphFCCgaCzm/Mcm8v8cWjvAmSlygekRw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

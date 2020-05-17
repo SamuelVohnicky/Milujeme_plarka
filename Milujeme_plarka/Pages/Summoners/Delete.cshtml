@@ -1,17 +1,17 @@
 ﻿@page
-@model Milujeme_plarka.Pages.Items.DeleteModel
+@model Milujeme_plarka.Pages.Summoners.DeleteModel
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h2>Odstranění toho tamtoho itemu</h2>
-<h3>Opravdu chcete itema odstranit?</h3>
+<h2>Pryč dát summonr z datebaz</h2>
+<h3>Fakt uplně pdát pryč??</h3>
 <div>
     <dl>
-        <dt>čamp</dt>
-        <dd>@Model.Item.ItemName</dd>
+        <dt>Samrn</dt>
+        <dd>@Model.Summoner.SummonerName</dd>
         <dt>Id</dt>
-        <dd>@Model.Item.ItemId</dd>
+        <dd>@Model.Summoner.SummonerName</dd>
     </dl>
 
     <form method="post">
@@ -19,4 +19,3 @@
         <a asp-page="./Index" class="btn">Zpět</a>
     </form>
 </div>
-

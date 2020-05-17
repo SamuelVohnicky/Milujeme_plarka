@@ -1,0 +1,22 @@
+﻿@page
+@model Milujeme_plarka.Pages.Summoners.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detail sumra</h2>
+<div class="row">
+    <div class="col-md-6">
+        <dl>
+            <dt>Název</dt>
+            <dd>@Model.Summoner.SummonerName</dd>
+            <dt>Id</dt>
+            <dd>@Model.Summoner.SummonerId </dd>
+            <dt>Fototohoshulma</dt>
+            <dd><img src="@Model.Summoner.Image" /></dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+<div><a class="btn" asp-page="Index">Zpět</a></div>
