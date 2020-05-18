@@ -17,6 +17,7 @@ using Milujeme_plarka.Services.Champions;
 using Milujeme_plarka.Services.Items;
 using Milujeme_plarka.Services.Quests;
 using Milujeme_plarka.Services.Summoners;
+using Newtonsoft.Json;
 
 namespace Milujeme_plarka
 {
@@ -35,6 +36,7 @@ namespace Milujeme_plarka
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = true;

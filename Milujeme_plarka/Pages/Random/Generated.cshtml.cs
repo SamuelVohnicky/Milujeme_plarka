@@ -69,7 +69,14 @@ namespace Milujeme_plarka.Pages.Random
             return RedirectToPage("Generated");
         }
 
-        
+        public async Task<IActionResult> OnGetTimerAsync()
+        {
+            var userId = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            user = _usermanager.FindByIdAsync(userId).Result;
+            user.QuestId = _questService.RandQuest();
+            _db.SaveChanges();
+            return RedirectToPage("Generated");
+        }
 
         //public string Item1 = "1. Item";
         //public string Item2 = "2. Item";
@@ -80,6 +87,6 @@ namespace Milujeme_plarka.Pages.Random
         //public string Spell1 = "Summoner 1";
         //public string Spell2 = "Summoner 2";
         //public string Ukol = "Ukol";
-        
+
     }
 }
